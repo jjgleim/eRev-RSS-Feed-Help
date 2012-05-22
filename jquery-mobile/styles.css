@@ -1,0 +1,204 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#status {
+	margin-top: 15px;
+}
+.sched {
+	margin: -15px;
+}
+.logo {
+	padding: 0px;
+	text-align: center;
+}
+.strands {
+	margin-bottom: 20px;
+	clear: both;
+	width: 100%;
+}
+.strandsImg {
+	float: left;
+	height: 60px;
+	width: 53px;
+	margin-right: 10px;
+}
+.center {
+	text-align: center;
+}
+.nav-glyphish-example .ui-btn .ui-btn-inner {
+	padding-top: 40px !important;
+}
+.nav-glyphish-example .ui-btn .ui-icon {
+	width: 30px!important;
+	height: 30px!important;
+	margin-left: -15px !important;
+	box-shadow: none!important;
+	-moz-box-shadow: none!important;
+	-webkit-box-shadow: none!important;
+	-webkit-border-radius: 0 !important;
+	border-radius: 0 !important;
+}
+#house .ui-icon {
+	background: url(../images/glyphishIcons/iconsWhite/53house2x.png) 50% 50% no-repeat;
+	background-size: 22px 22px;
+}
+#sched .ui-icon {
+	background: url(../images/glyphishIcons/iconsWhite/83calendar2x.png) 50% 50% no-repeat;
+	background-size: 24px 22px;
+}
+#map .ui-icon {
+	background: url(../images/glyphishIcons/iconsWhite/103map2x.png) no-repeat 50% 50%;
+	background-size: 26px 21px;
+}
+#eventbrite .ui-icon {
+	background: url(../images/glyphishIcons/iconsWhite/299ticket2x.png) 50% 50% no-repeat;
+	background-size: 28px 18px;
+}
+#more2 .ui-icon {
+	background: url(../images/glyphishIcons/iconsWhite/09chat22x.png) 50% 50% no-repeat;
+	background-size: 24px 22px;
+}
+.eb_login_btn a{ 
+      width:162px;
+      height:24px;
+      display:block;
+      text-indent: -99999px;
+      background: url('http://evbdn.eventbrite.com/s3-s3/static/images/developer/oauth2/oauth-connect-btns.png') top;
+    }
+    .eb_login_btn a:hover { background-position: 0px 24px;} 
+    .eb_logout {text-align: right;}
+    .eb_user_name {font-weight: bold;}
+    .eb_user_email {font-style: italic;}
+    .eb_login_box {
+      margin:  10px auto;
+      border:  1px solid lightGrey;
+      width:   162px;
+      padding: 0px 20px;
+    }
+    .eb_user_name{text-align:center;}
+
+#erev-email .ui-icon {
+	background-image:url(../icons/email.png);
+	background-size: 18px 18px;
+}
+
+@media only screen and (min-resolution: 240dpi) {
+	
+#erev-email .ui-icon {
+		background-image: url(../icons/email-hd.png);
+	}
+}
+
+#erev-facebook .ui-icon {
+	background-image:url(../icons/facebook.png);
+	background-size: 18px 18px;
+}
+
+@media only screen and (min-resolution: 240dpi) {
+	
+#erev-facebook .ui-icon {
+		background-image: url(../icons/facebook-hd.png);
+	}
+}
+
+#erev-twitter .ui-icon {
+	background-image:url(../icons/twitter.png);
+	background-size: 18px 18px;
+}
+
+@media only screen and (min-resolution: 240dpi) {
+	
+#erev-twitter .ui-icon {
+		background-image: url(../icons/twitter-hd.png);
+	}
+} 
+
+/* iScroll Stylings */
+
+#wrapper {
+	position:absolute; z-index:1;
+	top:45px; bottom:48px; left:-9999px;
+	width:100%;
+	background:#aaa;
+	overflow:auto;
+}
+
+#scroller {
+	position:absolute; z-index:1;
+/*	-webkit-touch-callout:none;*/
+	-webkit-tap-highlight-color:rgba(0,0,0,0);
+	width:100%;
+	padding:0;
+}
+
+#scroller ul {
+	list-style:none;
+	padding:0;
+	margin:0;
+	width:100%;
+	text-align:left;
+}
+
+#scroller li {
+	padding:0 10px;
+	height:40px;
+	line-height:40px;
+	border-bottom:1px solid #ccc;
+	border-top:1px solid #fff;
+	background-color:#fafafa;
+	font-size:14px;
+}
+
+#myFrame {
+	position:absolute;
+	top:0; left:0;
+}
+
+#pullDown, #pullUp {
+	background:#fff;
+	height:40px;
+	line-height:40px;
+	padding:5px 10px;
+	border-bottom:1px solid #ccc;
+	font-weight:bold;
+	font-size:14px;
+	color:#888;
+}
+#pullDown .pullDownIcon, #pullUp .pullUpIcon  {
+	display:block; float:left;
+	width:40px; height:40px;
+	background:url(pull-icon@2x.png) 0 0 no-repeat;
+	-webkit-background-size:40px 80px; background-size:40px 80px;
+	-webkit-transition-property:-webkit-transform;
+	-webkit-transition-duration:250ms;	
+}
+#pullDown .pullDownIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+#pullUp .pullUpIcon  {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullDown.flip .pullDownIcon {
+	-webkit-transform:rotate(-180deg) translateZ(0);
+}
+
+#pullUp.flip .pullUpIcon {
+	-webkit-transform:rotate(0deg) translateZ(0);
+}
+
+#pullDown.loading .pullDownIcon, #pullUp.loading .pullUpIcon {
+	background-position:0 100%;
+	-webkit-transform:rotate(0deg) translateZ(0);
+	-webkit-transition-duration:0ms;
+
+	-webkit-animation-name:loading;
+	-webkit-animation-duration:2s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:linear;
+}
+
+@-webkit-keyframes loading {
+	from { -webkit-transform:rotate(0deg) translateZ(0); }
+	to { -webkit-transform:rotate(360deg) translateZ(0); }
+}

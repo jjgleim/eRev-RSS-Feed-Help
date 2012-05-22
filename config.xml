@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+    xmlns:gap = "http://phonegap.com/ns/1.0"
+    id        = "com.evsc.erevolution"
+    version   = "1.0.0">
+
+<name>EVSC eRevolution</name>
+
+<description>
+The official app for the 2012 EVSC eRevolution Regional eLearning Conference!
+</description>
+
+<author href="http://www.evscicats.com" email="jerrad.gleim@evsc.k12.in.us">
+EVSC - Jerrad Gleim (Author)
+</author>
+
+<preference name="prerendered-icon" value="true" />
+<preference name="target-device" value="handset" />
+<preference name="fullscreen" value="true" /> 
+<preference name="stay-in-webview" value="true" /> <!--Keeps SCHED from loading an external webpage. -->
+<preference name="webviewbounce" value="false" />
+
+<access origin="*" />
+<access origin="http://blogspot.com" browserOnly="true" />
+
+<!--<feature name="http://api.phonegap.com/1.0/notification"/>-->
+<feature name="http://plugins.phonegap.com/ChildBrowser/2.0.1" />
+<feature name="http://api.phonegap.com/1.0/geolocation"/>
+
+<icon src="icon.png" />
+
+<!--iOS requires specific dimensions for icons; classic iPhone screens, Retina
+    displays, and iPad screens respectively 
+<icon src="icons/icon-iphone-57.png" width="57" height="57"/>
+<icon src="icons/icon-iphone-72.png" width="72" height="72"/>
+<icon src="icons/icon-iphone-114.png" width="114" height="114"/>
+<icon src="icons/icon144.png" width="144" height="144"/>-->
+
+<icon src="icons/ios/icon.png" width="57" height="57" />
+<icon src="icons/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
+<icon src="icons/ios/icon_at_2x.png" width="114" height="114" />
+
+<!-- Android requires specific dimensions; ldpi, mdpi, and hdpi respectively 
+<icon src="icons/icon-android-36.png" width="36" height="36"/>
+<icon src="icons/icon-android-48.png" width="48" height="48"/>
+<icon src="icons/icon-android-72.png" width="72" height="72"/>-->
+
+<icon src="icons/android/ldpi.png" gap:platform="android" gap:density="ldpi" />
+<icon src="icons/android/mdpi.png" gap:platform="android" gap:density="mdpi" />
+<icon src="icons/android/hdpi.png" gap:platform="android" gap:density="hdpi" />
+
+<!-- Windows 7 Phone Mobile
+<icon src="icons/icon-winphone.png" width="62" height="62">
+<icon src="icons/tile-icon-winphone.png" width="173" height="173"> -->
+
+<!-- iOS requires specific dimensions for different devices; classic iPhone
+  screens, Retina displays, and iPad screens 
+<gap:splash src="splashes/splash.png"/>
+<gap:splash src="splashes/retina.png" width="640" height="960"/>
+<gap:splash src="splashes/ipad-portrait.png" width="768" height="1004"/>
+<gap:splash src="splashes/ipad-landscape.png" width="1024" height="748"/>
+
+IF YOU NEED TO CHANGE BACK, BE SURE TO CHANGE THE FOLDER SPLASH BACK TO SPLASHES -->
+
+<gap:splash src="splash.png" />
+<gap:splash src="splash/ios/Default.png" width="320" height="480" />
+<gap:splash src="splash/ios/Default_at_2x.png" width="640" height="960" />
+<gap:splash src="splash/ios/Default-Landscape.png" width="1024" height="768" />
+<gap:splash src="splash/ios/Default-Portrait.png" width="768" height="1024" />
+
+<!-- Windows Phone 7 requires a specific dimension or platform attribute 
+<gap:splash src="splashes/winphone-splash.png" width="480" height="800">-->
+
+</widget>

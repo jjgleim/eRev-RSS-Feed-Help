@@ -1,0 +1,642 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="UTF-8">
+<title>EVSC eRevolution</title>
+<link href="jquery-mobile/jquery.mobile.theme-1.1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="jquery-mobile/jquery.mobile.structure-1.1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="jquery-mobile/styles.css" rel="stylesheet" type="text/css">
+<script src="jquery-mobile/jquery-1.7.1.min.js" type="text/javascript"></script>
+
+<script language="javascript">
+<!-- hide this -- Change some of the jQuery
+$(document).bind( "mobileinit", function() {
+
+$.mobile.pageLoadErrorMessage = "There was a problem loading the page. Please try again.";
+
+} );
+// end hide this -->
+</script>
+
+<script src="jquery-mobile/jquery.mobile-1.1.0.min.js" type="text/javascript"></script>
+<script src="jquery-mobile/main.js"></script>
+<script src="phonegap.js"></script>
+<script src="childbrowser.js"></script>
+<script type="text/javascript">
+    /**
+* Called when initial web page is loaded
+*/
+    function onBodyLoad()
+    {
+        console.log("onBodyLoad()");
+
+        // Listen for PhoneGap framework to finish init
+        document.addEventListener("deviceready",onDeviceReady,false);
+    }
+
+
+    /**
+* When this function is called, PhoneGap has been initialized and is ready to roll
+*/
+    function onDeviceReady() {
+        console.log("onDeviceReady()");
+    }
+   
+</script>
+</head> 
+<body onload="onBodyLoad();"> 
+<div id="mainPage" data-role="page" >
+    <div data-role="header" data-position="fixed">
+        <div class="logo"><img src="images/logo2012mobile.jpg" width="100%" alt="EVSC eRevolution" style="alignment-adjust:central"></div>
+    </div>
+    <div data-role="content"> 
+        <ul data-inset="false" data-role="listview" data-divider-theme="a"><li data-role="list-divider" style="text-align:center">CONFERENCE NEWS</li>
+        </ul>
+        <div id="status">
+        </div>
+                <ul id="linksList" data-inset="false" data-role="listview" data-divider-theme="a">
+        </ul>  
+    </div>
+    <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#page" id="house" data-icon="custom" class="ui-btn-active ui-state-persist">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" data-transition="fade">More</a></li>
+      </ul>
+    </div>
+  </div>   
+</div>
+<div id="contentPage" data-role="page" >
+    <div data-role="header" >
+        <a href="#mainPage" data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse">Back</a>
+        <h1></h1>
+    </div>
+    <div data-role="content" id="entryText">
+    </div>
+    <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" class="ui-btn-active ui-state-persist">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" data-transition="fade">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="more">
+  <div data-role="header" >
+    <h1>INFORMATION</h1>
+  </div>
+  <div data-role="content">
+    <ul data-role="listview" data-divider-theme="a">
+      <li><a href="#keyn">Keynote Speakers</a></li>
+      <!--<li><a href="#spot">Spotlight Speakers</a></li>-->
+      <li><a href="#strands">Strands</a></li>
+      <li><a href="#partners">Partners</a></li>  
+      <li><a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.evscicats.com/erevolution');">Conference Website</a></li>
+      <li><a href="#share">Share App</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div id="keyn" data-role="page">
+  <div data-role="header" data-position="inline"> <a data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a>
+    <h1>Keynotes</h1>
+  </div>
+  <div data-role="content">
+    <ul data-inset="true" data-role="listview">
+      <li><a href="#wrkn">
+      <img src="images/willbuttonpic.jpg" alt="Will Richardson">
+        <h3>Will Richardson</h3>
+        <p>July 11 - Morning Keynote</p>
+        </a></li>
+        <li><a href="#lfkn">
+        <img src="images/lesliebuttonpic.jpg" alt="Leslie Fisher">
+        <h3>Leslie Fisher</h3>
+        <p>July 11 - Evening Keynote</p>
+        </a></li>
+      <li><a href="#khkn">
+        <img src="images/kevinbuttonpic.jpg" alt="Kevin Honeycutt">
+        <h3>Kevin Honeycutt</h3>
+        <p>July 12 - Morning Keynote</p>
+        </a></li>
+    </ul>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" id="wrkn">
+    <div data-role="header" data-position="fixed"> <a data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a>
+    <h1>Will Richardson</h1>
+    <a href="#wrcontact" data-icon="grid" data-rel="dialog" data-iconpos="right" data-transition="pop">Contact</a>
+  </div>
+  <div data-role="content">
+     <img src="images/willbiopic.jpg" alt="Will Richardson" width="250" height="250" />
+     <h4><strong>July 11, 2012</strong></h4>
+      <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="d">
+   <h4>Biography</h4>
+    <p>A parent of two middle school aged children, Will Richardson has been thinki   ng and writing about the intersection of social online learning networks and education for the past 10 years at Weblogg-ed.com and in numerous journals and magazines such as Ed Leadership, Education Week and English Journal, and most recently at <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://willrichardson.com/');">willrichardson.com</a>. He is an outspoken advocate for change in schools and classrooms in the context of the diverse new learning opportunities that the Web and other technologies now offer. He is a former public school educator for 22 years, and is a co-founder of Powerful Learning Practice (<a href="#" onclick="window.plugins.childBrowser.showWebPage('http://plpnetwork.com/');">plpnetwork.com</a>), a unique professional development program that has mentored over 5,000 teachers worldwide in the last five years. His first book, <strong><em>Blogs, Wikis, Podcasts and Other Powerful Web Tools for Classrooms </em></strong>(Corwin Press, 3rd Edition 2010) has sold over 80,000 copies and has impacted classroom practice around the world. His second book, <strong><em>Personal Learning Networks: Using the Power of Connections to Transform Education, </em></strong>(Solution Tree) was released in May, 2011. His third book, a collection of blog posts titled <strong><em>Learning on the Blog</em></strong>, was published in August of 2011 by Corwin Press. Over the past six years, he has spoken to tens of thousands of educators in over a dozen countries about the merits of online learning networks for personal and professional growth. He is a national advisory board member of the George Lucas Education Foundation, and a regular columnist for District Administration Magazine. Will lives in rural New Jersey with his wife Wendy and his children Tess and Tucker. </p>
+      </div>
+      
+      <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="d">
+    <h3>Concurrent Sessions</h3>
+    <div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="c">
+      <h4>From Information Literacy to Information Leadership</h4>
+      <p><strong>From Information Literacy to Information Leadership</strong></p>
+      <p>Assessing the relevance and reliability of information is a crucial skill for all educators to master and model. But that type of information literacy is only the beginning. With the explosion of information coming online, each of us needs to use social Web technologies to employ successful strategies for finding, managing and communicating information relevant to our own practice and to our constituents. This workshop will cover the tools that information literate learners are using and the strategies to use them well.</p>
+      </div>
+    <div data-role="collapsible" data-collapsed="true" data-theme="a" data-content-theme="c">
+      <h4>Connective Writing</h4>
+      <p><strong>Connective Writing</strong></p>
+      <p>The ability to easily publish to the Internet has opened up all sorts of new possibilities for teachers to help students enhance their writing skills and become more effective communicators. In the age of the Read/Write Web, every reader can truly be a writer as well. Weblogs and wikis provide wide and diverse audiences from around the world for feedback and response. But they also require a more “connective writing” approach, one that can synthesize many disparate ideas from different sources, all connected together through hypertext. This is a think out of the box workshop intended to help you start exploring new ways to make your own writing and your classroom writing more meaningful and more effective.</p>
+      </div>
+    </div>
+    
+    <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="d">
+   <h3>Keynote</h3>
+   <p><strong>Learning in a Networked World: For Ourselves and for Our Students</strong></p>
+   <p>If we have access and the skills to take advantage of it, the Web gives us an easy connection to the people and the resources that we need to learn whatever we want to learn, when we want to learn it. That fact challenges the fundamental beliefs that we’ve held about schools and teaching and learning for over 100 years. As our students graduate into a fast-changing, globally networked world, what assumptions do we need to reconsider about how to best prepare them for their futures? How can each one of us begin to change our own learning practice to better model these new opportunities for our students? And what new challenges do we have to overcome to make sure the idea of school remains relevant in the networked world in which our students will live?</p>
+   </div>
+      
+    </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div data-role="dialog" id="wrcontact">
+  <div data-role="header" data-theme="b">
+    <h1>Contact Will</h1>
+  </div>
+  <div data-role="content">
+  <p><a href="mailto:willrichardson@adlfja.com" id="erev-email" data-icon="custom" data-iconpos="bottom" data-role="button">Email</a></p>
+  <p><a href="#" onclick="window.plugins.childBrowser.showWebPage('http://willrichardson.com/');" data-icon="home" data-iconpos="bottom" data-role="button">Website</a></p>
+      <p><a href="#" data-role="button" data-icon="custom" id="erev-twitter" data-iconpos="bottom">Twitter</a></p><p><a href="#" data-role="button" data-icon="custom" id="erev-facebook" data-iconpos="bottom">Facebook</a></p></div>
+</div>
+<div data-role="page" id="lfkn">
+  <div data-role="header" data-position="fixed" > <a  data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a>
+    <h1>Leslie Fisher</h1>
+  </div>
+  <div data-role="content">
+  <img src="images/lesliebiopic.jpg" alt="Leslie Fisher" width="250" height="250" align="absmiddle">
+    <h4><strong>July 11 - Special Dinner (Limited Seating)</strong></h4>
+    <p> Leslie Fishers interest in technology began while studying music at the University of Southern California. She quickly realized the value of utilizing computers for music mixing and recording. She grabbed her 300 baud modem, jumped on the Internet (before anyone really called it the internet) and started looking for music resources. She soon realized she was spending more time discovering technology than playing music so she changed her major and tried to figure out what geeky thing she could do for the rest of her life.</p>
+<p>
+After graduating from USC with a Business and Marketing degree in 1989 and a quick stint as a Trainer, Leslie joined Apple Computer in 1992. When the Internet took off in 1994, Leslie was one of the first Apple employees assigned to study Internet growth and implementation.</p>
+<p>
+In 1997, Leslie was roadkill on Apple's road to recovery and part of their massive lay off. Leslie planned to spend most of her huge severance package golfing and waiting a few months to look for a job. The day after her layoff, her phone began to ring with Apple customers requesting consulting, training and presentation services. Before she could say fore, Fisher Technologies Inc. was created to help educators with their technology implementations and decisions.</p>
+<p>
+<a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.lesliefisher.com');">Fisher Technologies Inc.</a> is now a worldwide company (meaning one employee named Leslie gets to travel the world teaching) specializing in Web Development, Web Tools as well as Digital Photography, Editing and Workflow. </p></div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#page" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" id="khkn">
+  <div data-role="header" data-position="fixed" > <a  data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a>
+    <h1>Kevin Honeycutt</h1>
+    </div>
+  <div data-role="content"> <img src="images/kevinbiopic.jpg" alt="Kevin Honeycutt" width="250" height="250" align="absmiddle">
+    <h4><strong>Speaking July 12, 2012</strong></h4>
+    <p> Kevin grew up in poverty and attended school in <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://web.me.com/khoneycuttessdack/kevinhoneycutt.org/Places_Ive_Lived.html');">many cities</a> across the United States. As he witnessed education around the country he collected powerful experiences that still influence his conversations and his work with educators. He spent 13 years teaching art K-12 in public school and for 17 years spent summers leading creative adventure camps for kids of all ages. In 1991 he received the <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.iste.org/membership/awards-and-recognition/list-of-awards/making-it-happen-award.aspx');">Making IT Happen Award</a> which is an internationally recognized awards program for educators and leaders in the field of educational technology integration in K–12 schools. The program identifies and rewards educational technology leaders around the world for their commitment and innovation. </p>
+    <p> For the past four years he has hosted a creative learning site called <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://artsnacks.org/');">ArtSnacks</a>  (<a href="#" onclick="window.plugins.childBrowser.showWebPage('http://artsnacks.org/');">http://artsnacks.org</a>) where he shares 150+ ten minute drawing videos that support standards curriculum. This social &ldquo;learning&rdquo; network is his Petri-dish for learning to mentor teachers and students in virtual environments. He was selected to be in the <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.apple.com/education/apple-distinguished-educator/');">Apple Distinguished Educator</a> class of 2011 and spends time helping schools that use Apple&rsquo;s powerful tools get the most out of them for students and teachers. </p>
+    <p> He is currently serving his ninth year as a Technology Integration Specialist at <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://essdack.org');">ESSDACK</a>, an educational service center based in Hutchinson, Kansas. At <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://essdack.org');">ESSDACK</a> he researches and designs programs, training and staff development with a strong passion for helping teachers and learners become successful with educational uses of technology. He shares his thinking and learning on his blog <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://web.me.com/khoneycuttessdack/kevinhoneycutt.org/Tradigital_Learning/Tradigital_Learning.html');">Tradigital Learning</a> and in his podcast <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://web.me.com/khoneycuttessdack/kevinhoneycutt.org/Driving_Questions_Podcast/Driving_Questions_Podcast.html');">Driving Questions in Education</a>. He is a <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.usd448.com/school-board.html');">school board member</a> in the town of <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.inmanks.org/');">Inman</a> Kansas and is currently serving in his second term. He feels that one of his most important roles is to help vision what the future holds for learners and to help move  schools in right, new directions. During his classroom tenure, he developed <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://web.mac.com/khoneycuttessdack/Kevin/My_PBL_Drawer.html');">project-based approaches to learning</a> that infused technology and problem solving skills. He created a <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://web.me.com/khoneycuttessdack/kevinhoneycutt.org/Ghost_Movie.html');">film program for kids</a> and developed it into a fully functioning curriculum at the high school level. He co-developed a PBL approach called the <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.lifepracticepbl.org/about-us.html');">Life Practice Model</a> with colleague Ginger Lewman and they provide training and certification in this powerful, student driven approach to learning. </p>
+    <p>Kevin has developed <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://mysafesurf.org/');">online safety, anti-bullying and cyber-bullying curriculum</a> which he shares with parents, teachers and students around the country. He certifies instructors in this curriculum and supports trainers as they go out and do this important work. His recent book <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.lulu.com/product/paperback/dont-stay-under-the-couch-starbuck-and-the-bully/14601230?productTrackingContext=search_results/search_shelf/center/7');">Don&rsquo;t Stay Under The Couch Starbuck and The Bully</a> is the centerpiece of his Pre-K-6 curriculum. He continues to work with schools to develop innovative, engaging curriculum to better prepare learners for the world they will face when they graduate. He is passionate about meeting the needs of at-risk learners and <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://web.me.com/khoneycuttessdack/kevinhoneycutt.org/Tradigital_Learning/Entries/2011/1/27_The_art_of_teaching_in_juvi....html');">works with kids in juvenile detention</a>, developing approaches to re-engage the "lost" learner. Kevin travels the country and the world speaking at conferences and working with educators at the grassroots level and likes to promote a "tradigital" approach to education. </p>
+    <p>Kevin likes to bring his personal life experience and a sense of humor and creativity to the mission of helping prepare 21st century learners!</p>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="strands">
+  <div data-role="header" data-position="fixed" > <a data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a>
+    <h1>Strands</h1>
+  </div>
+  <div data-role="content">
+    <div>
+      <article class="strands"> <img src="images/strands/ILM.png" width="53" height="53" alt="Innovative Learning Models" class="strandsImg"> <strong class="redText">Innovative Learning Models:</strong> This strand will provide new methods of content delivery such as project based learning, flipped classroom, and learning playgrounds.
+        <div class="clearfloat"></div>
+      </article>
+      <p>&nbsp; </p>
+      <article class="strands"> <img src="images/strands/21stCenturySkills.png" width="53" height="53" alt="21st Century Skills"  class="strandsImg"> <strong class="redText">21st Century Standards and Skills:</strong> Integrating common core standards and helping students become effective critical thinkers and communicators.
+        <div class="clearfloat"></div>
+      </article>
+      <p>&nbsp; </p>
+      <article class="strands"><img src="images/strands/promethean.png" width="53" height="53" alt="ActivTeaching" class="strandsImg"> <strong class="redText">ActivTeaching:</strong> Understanding how tools such as document cameras, response devices, and interactive boards can create a student-centered and engaged classroom.
+        <div class="clearfloat"></div>
+      </article>
+      <p>&nbsp; </p>
+      <article class="strands"> <img src="images/strands/buildingYourToolbox.png" width="53" height="53" alt="Building Your Toolbox" class="strandsImg"> <strong class="redText"><span>Building Your Toolbox:</span></strong> Exploring hardware, software, and Web 2.0 tools that make teaching easier and learning more exciting.
+        <div class="clearfloat"></div>
+      </article>
+      <p>&nbsp; </p>
+      <article class="strands"> <img src="images/strands/leadershipDigitalAge.png" width="53" height="53" alt="Leadership in the Digital Age" class="strandsImg"> <strong class="redText">Leadership in the Digital Age:</strong> Strengthen your attitude and aptitude for the challenging task of leading in technology-rich schools.
+        <div class="clearfloat"></div>
+      </article>
+    </div>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="reg">
+  <div data-role="header" data-position="fixed">
+		<h1>Tickets</h1>
+	</div>
+	<div data-role="content">	
+		<ul data-inset="true" data-role="listview" data-theme="e">
+            <li><a href="#" onclick="window.plugins.childBrowser.showWebPage('https://www.eventbrite.com/login');">My Registration</a></li>
+        </ul>
+        <p>Registration for the 2012 EVSC eRevolution Conference is <strong>FREE</strong> and includes breakfast and lunch each day. </p>
+    <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="d"><h4>Cancellation Policy</h4>
+    <p>If need to cancel your registration, please email the <a href="mailto:icats@evsc.k12.in.us">EVSC ICATS</a>.</p>
+    <p>Go to the <a href="#" onclick="window.plugins.childBrowser.showWebPage('http://www.evscicats.com/erevolution');">eRevolution Website</a> for more information.</div>
+    <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="d">
+    <h4>Image Release</h4>
+    <p> By registering and participating in the EVSC eRevolution Regional eLearning Conference you are releasing the use of your likeness. This includes, but is not limited to, audio/video recordings and photographs that are taken during the conference. </p></div>
+    <div data-role="collapsible" data-collapsed="true" data-theme="b" data-content-theme="d"><h4>Licensure Renewal</h4>
+    <p>After the conference has concluded, attendees will receive via email a digital certificate  stating they attended the conference.</p>	</div>
+	</div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" class="ui-btn-active ui-state-persist">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" data-transition="fade">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div data-role="page" id="plan">
+  <div data-role="content">
+    <article class="sched">
+      <div style="width:100%; text-align:center;" >
+        <iframe src="http://evscelearningrevolution2012.sched.org/?embed=true" frameborder="0" width="100%" height="100%"></iframe>
+        <!--<p>Here's the Sched</p>-->
+      </div>
+    </article>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" class="ui-btn-active ui-state-persist">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" data-transition="fade">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="partners">
+  <div data-role="header" data-position="inline" > <a data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a>
+    <h1>Partners</h1>
+  </div>
+  <div data-role="content">
+    <ul data-role="listview" data-inset="true" data-split-icon="arrow-r" data-filter="true">
+      <li><a href="#adobe">
+        <h3>Adobe Systems, Inc.</h3>
+        </a></li>
+      <li><a href="#digwish">
+        <h3>Digital Wish</h3>
+        <p>Donate technology to a classroom with Digital Wish</p>
+        </a></li>
+      <li><a href="#feller">
+        <h3>Feller Limousine</h3>
+        </a></li>
+      <li><a href="#idoe">
+        <h3>IDOE</h3>
+        <p>Indiana Department of Education</p>
+        </a></li>
+      <li><a href="#ccc">
+        <h3>New Dimension Media</h3>
+        <p>Core Curriculum Content</p>
+        </a></li>
+      <li><a href="#promethean">
+        <h3>Promethean</h3>
+        <p>Interactive Whiteboards and Student Response Systems</p>
+        </a></li>
+      <li><a href="#sifteo">
+        <h3>Sifteo</h3>
+        <p>The makers of Sifteo Cubes</p>
+        </a></li>
+      <li><a href="#swc">
+        <h3>SWC</h3>
+        <p>South Western Communications</p>
+        </a></li>
+    </ul>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="adobe">
+  <div data-role="header" data-position="inline" > <a data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a>
+    <h1>Adobe Systems, Inc.</h1>
+    <a href="#mainPage" data-icon="home" data-iconpos="right" data-transition="slide" data-direction="reverse"> Home </a> </div>
+  <div data-role="content"> <img src="images/partnertech/appicons/adobe.jpg" alt="Adobe" width="30%"  align="right">
+    <h2>Adobe Systems Incorporated</h2>
+    <h4>Dave Tutton</h4>
+    <p>Education Territory Manager</p>
+    <p><strong>Email:</strong> dtutton@adobe.com</p>
+    <p><strong>Phone:</strong> 317.883.7187</p>
+    <p><strong>Website:</strong> http://www.adobe.com</p>
+    <p>&nbsp;</p>
+    <div data-role="controlgroup" data-type="horizontal" class="center"><a href="mailto:dtutton@adobe.com" data-role="button">Email</a><a href="tel:3178837187" data-role="button">Call</a><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('http://www.adobe.com');">Website</a></div>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="digwish">
+  <div data-role="header" data-position="inline" > <a data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a>
+    <h1>Digital Wish</h1>
+    <a href="#mainPage" data-icon="home" data-iconpos="right" data-transition="slide" data-direction="reverse"> Home </a> </div>
+  <div data-role="content"> <img src="images/partnertech/appicons/digitalWish.jpg" alt="Digital Wish" width="30%"  align="right">
+    <h2>Digital Wish</h2>
+    <p>Putting technology in the hands of teachers to prepare today's students for tomorrow.</p>
+    <h4>Heather Chirtea</h4>
+    <p>Executive Director/Founder, Board President</p>
+    <p><strong>Email:</strong> heather@digitalwish.org</p>
+    <p><strong>Phone:</strong> 866.344.7758</p>
+    <p><strong>Website:</strong> http://www.digitalwish.com</p>
+    <p>&nbsp;</p>
+    <div data-role="controlgroup" data-type="horizontal" class="center"><a href="mailto:heather@digitalwish.org" data-role="button">Email</a><a href="tel:8663447758" data-role="button">Call</a><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('http://www.digitalwish.com');">Website</a></div>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="feller">
+  <div data-role="header" data-position="inline" > <a data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a>
+    <h1>Feller Limousine</h1>
+    <a href="#mainPage" data-icon="home" data-iconpos="right" data-transition="slide" data-direction="reverse"> Home </a></div>
+  <div data-role="content"> <img src="images/partnertech/appicons/feller.jpg" alt="Feller Limousine" width="30%" align="right">
+    <h2>Feller Limousine</h2>
+    <h4>Christopher Feller</h4>
+    <p>Owner</p>
+    <p><strong>Email:</strong> fellerlimousine@yahoo.com</p>
+    <p><strong>Phone:</strong> 812.430.5850</p>
+    <p><strong>Facebook:</strong> Feller Limousine</p>
+    <div data-role="controlgroup" data-type="horizontal" class="center"><a href="mailto:fellerlimousine@yahoo.com" data-role="button">Email</a><a href="tel:3172329038" data-role="button">Call</a><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('https://www.facebook.com/pages/Feller-Limousine/151220611634979');">Facebook</a></div>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="idoe">
+  <div data-role="header" data-position="inline" > <a data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a>
+    <h1>IDOE</h1>
+    <a href="#mainPage" data-icon="home" data-iconpos="right" data-transition="slide" data-direction="reverse"> Home </a></div>
+  <div data-role="content"> <img src="images/partnertech/appicons/idoe.jpg" alt="Indiana Department of Education" width="30%" align="right">
+    <h2>Indiana Department of Education</h2>
+    <p><strong>SUPPORTING STUDENT SUCCESS</strong></p>
+    <h4>Candice Dodson</h4>
+    <p>Director &#8226; Office of eLearning</p>
+    <p><strong>Email:</strong> cdodson@doe.in.gov</p>
+    <p><strong>Phone:</strong> 317.232.9038</p>
+    <p><strong>Website:</strong> http://www.doe.in.gov</p>
+    <div data-role="controlgroup" data-type="horizontal" class="center"><a href="mailto:cdodson@doe.in.gov" data-role="button">Email</a><a href="tel:3172329038" data-role="button">Call</a><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('http://www.doe.in.gov');">Website</a></div>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="ccc">
+  <div data-role="header" data-position="inline" > <a data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a><!-- #EndLibraryItem -->
+    <h1>New Dimension Media</h1>
+    <a href="#mainPage" data-icon="home" data-iconpos="right" data-transition="slide" data-direction="reverse"> Home </a></div>
+  <div data-role="content"> <img src="images/partnertech/appicons/ndmccc.jpg" alt="Indiana Department of Education" width="30%" align="right">
+    <h2>New Dimension Media</h2>
+    <p><strong>CCC! Core Curriculum Content</strong></p>
+    <h4>Jo-Ann Kratz</h4>
+    <p>Senior Vice President</p>
+    <p><strong>Email:</strong> jkratz@ndmquestar.com</p>
+    <p><strong>Phone:</strong> 312.397.2156</p>
+    <p><strong>Website:</strong> http://www.ndmquestar.com</p>
+    <p><strong>Website:</strong> http://www.cccvod.com</p>
+    <div data-role="controlgroup" data-type="horizontal" class="center"><a href="mailto:jkratz@ndmquestar.com" data-role="button">Email</a><a href="tel:3123972156" data-role="button">Call</a><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('http://www.ndmquestar.com');">Website</a></div>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="promethean">
+  <div data-role="header" data-position="inline" > <a data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a><!-- #EndLibraryItem -->
+    <h1>Promethean</h1>
+    <a href="#mainPage" data-icon="home" data-iconpos="right" data-transition="slide" data-direction="reverse"> Home </a></div>
+  <div data-role="content"> <img src="images/partnertech/appicons/promethean.jpg" alt="Promethean" width="30%" align="right">
+    <h2>Promethean</h2>
+    <h4>Wendy Zuber, M.S.</h4>
+    <p>Teaching and Learning Consultant</p>
+    <p><strong>Email:</strong> wendy.zuber@prometheanworld.com</p>
+    <p><strong>Phone:</strong> 412.908.2744</p>
+    <p><strong>Website:</strong> http://www.prometheanworld.com</p>
+    <p><strong>Facebook: </strong>PrometheanPlanet</p>
+    <p><strong>Twitter:</strong> @wzuber @prometheanusa</p>
+    <div data-role="controlgroup" data-type="horizontal" class="center"><a href="mailto:wendy.zuber@prometheanworld.com" data-role="button">Email</a><a href="tel:4129082744" data-role="button">Call</a><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('http://www.prometheanworld.com');">Website</a></div>
+    <div data-role="controlgroup" data-type="horizontal" class="center"><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('https://www.facebook.com/PrometheanPlanet');">Facebook</a></div>
+    <div data-role="controlgroup" data-type="horizontal" class="center"><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('https://twitter.com/#!/wzuber');">@wzuber</a><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('https://twitter.com/#!/PrometheanUSA');">@prometheanusa</a></div>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="sifteo">
+  <div data-role="header" data-position="inline" > <a data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a>
+    <h1>Sifteo</h1>
+    <a href="#mainPage" data-icon="home" data-iconpos="right" data-transition="slide" data-direction="reverse"> Home </a></div>
+  <div data-role="content"> <img src="images/partnertech/appicons/sifteo.jpg" alt="Sifteo" width="30%" align="right">
+    <h2>Sifteo</h2>
+    <p>The makers of Sifteo Cubes</p>
+    <h4>Sarah Crane Newman</h4>
+    <p>Position</p>
+    <p><strong>Email:</strong> address</p>
+    <p><strong>Phone:</strong> xxx.xxx.xxxx</p>
+    <p><strong>Website:</strong> http://www.sifteo.com</p>
+    <div data-role="controlgroup" data-type="horizontal" class="center"><a href="mailto:address" data-role="button">Email</a><a href="tel:xxxxxxxxxx" data-role="button">Call</a><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('http://www.sifteo.com');">Website</a></div>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="swc">
+  <div data-role="header" data-position="inline" > <a data-rel="back" data-icon="arrow-l" data-transition="slide" data-direction="reverse"> Back </a>
+    <h1>SWC, Inc.</h1>
+    <a href="#mainPage" data-icon="home" data-iconpos="right" data-transition="slide" data-direction="reverse"> Home </a></div>
+  <div data-role="content"> <img src="images/partnertech/appicons/swc.jpg" alt="SWC" width="30%" align="right">
+    <h2>South Western Communications, Inc.</h2>
+    <h4>Dennis Skinner</h4>
+    <p>Sales Engineer</p>
+    <p><strong>Email:</strong> dskinner@swc.net</p>
+    <p><strong>Phone:</strong> 812.477.6495</p>
+    <p><strong>Website:</strong> http://www.swc.net</p>
+    <div data-role="controlgroup" data-type="horizontal" class="center"><a href="mailto:dskinner@swc.net" data-role="button">Email</a><a href="tel:8124776495" data-role="button">Call</a><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('http://www.swc.net');">Website</a></div>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" data-transition="fade">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" class="ui-btn-active ui-state-persist">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div data-role="page" id="northhs">
+  <div data-role="header" data-position="inline" > 
+    <h1>MAPS</h1>
+  </div>
+  <div data-role="content">
+    <div class="addr center"><img src="images/northhshuskymascot.jpg" class="thumbnail" width="40%" alt="North High School Husky Mascot">
+      <h3>Evansville North <br/>
+      Junior / Senior High School</h3>
+      <p>15325 Highway 41 North<br>
+        Evansville, IN 47725</p>
+        <hr />
+        <h3>CONFERENCE LOCATION</h3>
+      <div data-role="controlgroup" data-type="horizontal" class="center"><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('http://g.co/maps/b6a8w');">Google Maps</a><a href="tel:8124355290" data-role="button">Call Help</a></div><hr />
+      <div data-role="controlgroup" data-type="horizontal" class="center"><h3>BUILDING MAPS</h3><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('http://www.evscicats.com/erevolution/docs/maps/north-main-level.pdf');">Main Level</a><a href="#" data-role="button" onclick="window.plugins.childBrowser.showWebPage('http://www.evscicats.com/erevolution/docs/maps/north-upper-level.pdf');">Upper Level</a></div>
+    </div>
+  </div>
+  <div data-role="footer" data-id="nav" class="nav-glyphish-example"  data-position="fixed">
+    <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+      <ul>
+        <li><a href="#mainPage" id="house" data-icon="custom" data-transition="fade">Home</a></li>
+        <li><a href="#reg" id="eventbrite" data-icon="custom" data-transition="fade">Tickets</a></li>
+        <li><a href="#plan" id="sched" data-icon="custom" data-transition="fade">Planner</a></li>
+        <li><a href="#northhs" id="map" data-icon="custom" class="ui-btn-active ui-state-persist">Maps</a></li>
+        <li><a href="#more" id="more2" data-icon="custom" data-transition="fade">More</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+</body>
+</html>
